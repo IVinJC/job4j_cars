@@ -9,7 +9,6 @@ public class Hbn {
     public static void main(String[] args) {
 
     }
-
     public List<Ad> showAdsLastDay(SessionFactory sf) {
         List<Ad> list = null;
         Session session = sf.openSession();
@@ -20,7 +19,6 @@ public class Hbn {
         session.close();
         return list;
     }
-
     public List<Ad> showAdsPhoto(SessionFactory sf) {
         List<Ad> list = null;
         Session session = sf.openSession();
