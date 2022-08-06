@@ -9,18 +9,16 @@ public class Hbn {
     public static void main(String[] args) {
 
     }
-
     public List<Ad> showAdsLastDay(SessionFactory sf) {
         List<Ad> list = null;
         Session session = sf.openSession();
         session.beginTransaction();
-        session.createQuery("select distinct a from Ad a "
+        list = session.createQuery("select distinct a from Ad a "
                 + "join fetch a.car c join fetch c.marks where a.date = CURRENT_DATE()").list();
         session.getTransaction().commit();
         session.close();
         return list;
     }
-
     public List<Ad> showAdsPhoto(SessionFactory sf) {
         List<Ad> list = null;
         Session session = sf.openSession();
