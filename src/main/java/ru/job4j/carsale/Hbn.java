@@ -3,6 +3,7 @@ package ru.job4j.carsale;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Hbn {
@@ -10,7 +11,7 @@ public class Hbn {
 
     }
     public List<Ad> showAdsLastDay(SessionFactory sf) {
-        List<Ad> list = null;
+        List<Ad> list = new ArrayList<>();
         Session session = sf.openSession();
         session.beginTransaction();
         list = session.createQuery("select distinct a from Ad a "
@@ -20,7 +21,7 @@ public class Hbn {
         return list;
     }
     public List<Ad> showAdsPhoto(SessionFactory sf) {
-        List<Ad> list = null;
+        List<Ad> list = new ArrayList<>();
         Session session = sf.openSession();
         session.beginTransaction();
         list = session.createQuery("select distinct a from Ad a "
@@ -31,7 +32,7 @@ public class Hbn {
     }
 
     public List<Ad> showAdsMark(SessionFactory sf, Mark mark) {
-        List<Ad> list = null;
+        List<Ad> list = new ArrayList<>();
         Session session = sf.openSession();
         session.beginTransaction();
         list = session.createQuery("select distinct a from Ad a "
