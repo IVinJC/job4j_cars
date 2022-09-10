@@ -1,5 +1,6 @@
-create table if not exists body(
-                                  id SERIAL PRIMARY KEY ,
-                                  idnumber int,
-                                  name varchar(500)
+create table if not exists body
+(
+    id       SERIAL PRIMARY KEY,
+    name     varchar(250)
 );
+
