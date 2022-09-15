@@ -18,7 +18,6 @@ public class Model {
     private int id;
     @NonNull
     private String name;
-    @NonNull
     @ManyToOne
     @JoinColumn(name = "mark_id", referencedColumnName = "id")
     private Mark mark;

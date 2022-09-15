@@ -19,7 +19,6 @@ public class Mark {
     private int id;
     @NonNull
     private String name;
-    @NonNull
-    @OneToMany (mappedBy = "mark")
+    @OneToMany (mappedBy = "mark", cascade = CascadeType.ALL)
     private List<Model> models;
 }
