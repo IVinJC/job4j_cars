@@ -4,11 +4,14 @@ import org.springframework.stereotype.Service;
 import ru.job4j.carsale.model.Ad;
 import ru.job4j.carsale.repository.AdDbStore;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AdService {
     private final AdDbStore adDbStore;
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy hh:mm");
 
     public AdService(AdDbStore adDbStore) {
         this.adDbStore = adDbStore;
@@ -19,7 +22,10 @@ public class AdService {
     }
 
     public List<Ad> findAll() {
-        return adDbStore.findAll();
+        return adDbStore.findAll()
+                .stream()
+                .peek(ad -> ad.setFormattedDate(ad.getCreated().format(formatter)))
+                .collect(Collectors.toList());
     }
 
     public Ad findById(int id) {

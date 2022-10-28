@@ -33,6 +33,7 @@
             <thead>
             <tr>
                 <th scope="col">№</th>
+                <th scope="col">Фото авто</th>
                 <th scope="col">Объявление</th>
                 <th scope="col">Цена</th>
                 <th scope="col">Дата создания</th>
@@ -44,11 +45,14 @@
             <tr th:each="ad : ${ads}">
                 <td th:text="${ad.id}"></td>
                 <td>
+                    <img th:width="100" th:high="100" th:src="@{|/photoCar/${ad.id}|}">
+                </td>
+                <td>
                     <!--<a th:href="@{/post/{id}(id=${post.id})}" th:text="${post.id + '. ' + post.name}">Post name</a>-->
                     <a th:href="@{|/description/${ad.id}|}" th:text="${ad.name}">ad name</a>
                 </td>
                 <td th:text="${ad.price}"></td>
-                <td th:text="${ad.created}"></td>
+                <td th:text="${ad.formattedDate}"></td>
                 <td>
                     <span th:if="${ad.status}">Продано</span>
                     <span th:if="${!ad.status}">Не продано</span>

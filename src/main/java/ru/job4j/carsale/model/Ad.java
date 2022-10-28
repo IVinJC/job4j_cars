@@ -43,6 +43,7 @@ public class Ad {
     private int price;
     @NonNull
     private LocalDateTime created;
+    private String formattedDate;
     @NonNull
     private boolean status;
 }
